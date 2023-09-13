@@ -71,13 +71,13 @@ public:
       	return "1.2.3";
     }
   
-  	// startup sequence 1 inside maes
+    // startup sequence 1 inside maes
     void onInit() override {
 	// logs
 	maeslog.debug("%s\n", __FUNCTION__); 
     }
 
-  	// startup sequence 2 inside maes
+    // startup sequence 2 inside maes
     int initHal() override {
 	maeslog.debug("%s\n", __FUNCTION__); 
       	// init your hardware
@@ -87,7 +87,7 @@ public:
         return 0;
     }
 
-  	// startup sequence 3 inside maes
+    // startup sequence 3 inside maes
     int initFml() override {
 	maeslog.debug("%s\n", __FUNCTION__); 
         // init your functions
