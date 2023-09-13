@@ -20,9 +20,9 @@
 </p>
 
 
-maes = **Microservice Architecture on Embedded System**.
+MAES = **Microservice Architecture on Embedded System**.
 
-maes gives your system the abilities of :
+MAES gives your system the abilities of :
 
 1. Build your service fast in C/C++;
 2. Multi-service or multi-process communication; (PUB/SUB and REQ/RESP)
@@ -159,5 +159,5 @@ make
 1. Breaking your monolithic application into services, which are then loosely connected via APIs. This allows for improved scalability, better fault isolation, and faster time to market;
 2. Easy for two-pizza development teams;
 3. For embedded system or embedded devices, the communication is easily between your services in your device or amoung your devices;
-4. Hope you will love [maes](https://www.github.com/jtttl/maes);
+4. Hope you will love [MAES](https://www.github.com/jtttl/maes);
 
