@@ -1,0 +1,13 @@
+{
+    "mqtt-service":{
+        "reserved_addr":"127.0.0.1:7001",
+        "mqtt":{
+            "ip":"x.x.x.x",
+            "port":9000,
+            "keep_alive":60,
+            "qos":1,
+            "key":"...",
+            "passwd":"..."
+        }
+    }
+}
