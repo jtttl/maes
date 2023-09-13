@@ -45,41 +45,41 @@ maes gives your system the abilities of :
 // Create a derived class from maes::ServiceHandler
 class MqttService : public maes::ServiceHandler {
 public:
-		MqttService() {}
-  	virtual ~MqttService() {}
+    MqttService() {}
+    virtual ~MqttService() {}
   
 public:
 
-  	// path of storing all the log files 
+    // path of storing all the log files 
     std::string getLogPath() override {
         return "/tmp";
     }
   
-  	// path of configuration file
+    // path of configuration file
     std::string getConfigFile() override {
         return "/home/config.json";
     }
 
-  	// set your service name
+    // set your service name
     std::string getServiceName() override {
         return "mqtt-service";
     }
   
-  	// set your service version
-	  std::string getVersion()
+    // set your service version
+    std::string getVersion()
     {
       	return "1.2.3";
     }
   
   	// startup sequence 1 inside maes
     void onInit() override {
-				// logs
-				maeslog.debug("%s\n", __FUNCTION__); 
+	// logs
+	maeslog.debug("%s\n", __FUNCTION__); 
     }
 
   	// startup sequence 2 inside maes
     int initHal() override {
-				maeslog.debug("%s\n", __FUNCTION__); 
+	maeslog.debug("%s\n", __FUNCTION__); 
       	// init your hardware
       	// beep_init();
         // uart_init();
@@ -89,7 +89,7 @@ public:
 
   	// startup sequence 3 inside maes
     int initFml() override {
-				maeslog.debug("%s\n", __FUNCTION__); 
+	maeslog.debug("%s\n", __FUNCTION__); 
         // init your functions
       	// db_init();
       	// algorithm_init();
@@ -100,7 +100,7 @@ public:
   	// startup sequence 4 inside maes
     int initAppl() override {
       	// get configurations
-				const int val = framework().getConfig()["mqtt-service"]["val"].asInt();
+	const int val = framework().getConfig()["mqtt-service"]["val"].asInt();
      		
       	// do something
       	// ...
@@ -115,14 +115,14 @@ public:
 
   	// on maes exit
     void onExit() override {
-				maeslog.debug("%s\n", __FUNCTION__); 
+	maeslog.debug("%s\n", __FUNCTION__); 
     }
 };
 
 int main(int argc, char const *argv[]) {
-  	// put your service into the maes
+    // put your service into the maes
     maes::Framework f(std::make_shared<TpuService>());
-  	// let's go
+    // let's go
     return f.run();
 }
 ```
