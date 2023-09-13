@@ -25,7 +25,7 @@ maes = **Microservice Architecture on Embedded System**.
 maes gives your system the abilities of :
 
 1. build your service fast in C/C++;
-2. mutity-service or mulity-process communication; (PUB/SUB and REQ/RESP)
+2. multi-service or multi-process communication; (PUB/SUB and REQ/RESP)
 3. write and save logs;
 4. load and configuration file and use configurations;
 
