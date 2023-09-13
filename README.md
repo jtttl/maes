@@ -97,7 +97,7 @@ public:
         return 0;
     }
 
-  	// startup sequence 4 inside maes
+    // startup sequence 4 inside maes
     int initAppl() override {
       	// get configurations
 	const int val = framework().getConfig()["mqtt-service"]["val"].asInt();
@@ -113,7 +113,7 @@ public:
         return 0;
     }
 
-  	// on maes exit
+    // on maes exit
     void onExit() override {
 	maeslog.debug("%s\n", __FUNCTION__); 
     }
