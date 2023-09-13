@@ -1,4 +1,7 @@
 <h1 align="center">
+<br>
+  <a href="https://github.com/jtttl/maes"><img src="https://github.com/jtttl/maes/assets/8311087/b97fc5da-9944-4eb3-9bbe-8daa7c6e54d2" alt="maes" width="200"></a>
+  <br>
   <font>MAES</font>
 </h1>
 
