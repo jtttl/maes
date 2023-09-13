@@ -24,10 +24,10 @@ maes = **Microservice Architecture on Embedded System**.
 
 maes gives your system the abilities of :
 
-1. build your service fast in C/C++;
-2. multi-service or multi-process communication; (PUB/SUB and REQ/RESP)
-3. write and save logs;
-4. load and configuration file and use configurations;
+1. Build your service fast in C/C++;
+2. Multi-service or multi-process communication; (PUB/SUB and REQ/RESP)
+3. Write and save logs;
+4. Load and configuration file and use configurations;
 
 
 
@@ -156,6 +156,8 @@ make
 
 # Why microservice
 
-1. Breaking your monolithic application into services, which are then loosely connected via APIs. This allows for improved scalability, better fault isolation, and faster time to market.
-2. Easy for Two-Pizza Development Teams.
+1. Breaking your monolithic application into services, which are then loosely connected via APIs. This allows for improved scalability, better fault isolation, and faster time to market;
+2. Easy for two-pizza development teams;
+3. For embedded system or embedded devices, the communication is easily between your services in your device or amoung your devices;
+4. Hope you will love maes;
 
