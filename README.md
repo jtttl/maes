@@ -32,7 +32,7 @@ maes gives your system the abilities of :
 
 
 # System Overview
-<img width="590" alt="image" src="https://github.com/jtttl/maes/assets/8311087/d562ad71-d0a9-4b2f-8f69-7215b66aedf9">
+<img width="590" alt="image" src="https://github.com/jtttl/maes/assets/8311087/e15301f5-47c8-4cf8-b1de-6278faa70df4">
 
 
 
