@@ -3,10 +3,10 @@
 </h1>
 
 <p align="center">
-  <a><img src="https://img.shields.io/badge/based on-c++-green"><\a>
-  <a><img src=" https://img.shields.io/badge/based on-zmq-green"><\a>
-  <a><img src=" https://img.shields.io/badge/based on-zlog-green"><\a>
-  <a><img src=" https://img.shields.io/badge/based on-jsoncpp-green"><\a>
+  <a><img src="https://img.shields.io/badge/based on-c++-green"></a>
+  <a><img src=" https://img.shields.io/badge/based on-zmq-green"></a>
+  <a><img src=" https://img.shields.io/badge/based on-zlog-green"></a>
+  <a><img src=" https://img.shields.io/badge/based on-jsoncpp-green"></a>
 </p>
 
 <p align="center">
