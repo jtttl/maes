@@ -16,7 +16,8 @@
   <a href="#System Overview">System Overview</a> •
   <a href="#How To Use">How To Use</a> •
   <a href="#Install">Install</a>  •
-  <a href="#Why microservice">Why microservice</a>
+  <a href="#Why microservice">Why microservice</a> •
+  <a href="# Contact me">Contact me</a>
 </p>
 
 
@@ -27,7 +28,7 @@ MAES gives your system the abilities of :
 1. Build your service fast in C/C++;
 2. Multi-service or multi-process communication; (PUB/SUB and REQ/RESP)
 3. Write and save logs;
-4. Load and configuration file and use configurations;
+4. Load configuration file and use configurations;
 
 
 
@@ -43,21 +44,21 @@ MAES gives your system the abilities of :
 #include <memory>
 
 // maes include
-#include "MaesService.h" 
+#include "MaesService.h"
 
 // Create a derived class from maes::ServiceHandler
 class MqttService : public maes::ServiceHandler {
 public:
     MqttService() {}
     virtual ~MqttService() {}
-  
+
 public:
 
-    // path of storing all the log files 
+    // path of storing all the log files
     std::string getLogPath() override {
         return "/tmp";
     }
-  
+
     // path of configuration file
     std::string getConfigFile() override {
         return "/home/config.json";
@@ -67,22 +68,22 @@ public:
     std::string getServiceName() override {
         return "mqtt-service";
     }
-  
+
     // set your service version
     std::string getVersion()
     {
       	return "1.2.3";
     }
-  
+
     // startup sequence 1 inside maes
     void onInit() override {
 	// logs
-	maeslog.debug("%s\n", __FUNCTION__); 
+	maeslog.debug("%s\n", __FUNCTION__);
     }
 
     // startup sequence 2 inside maes
     int initHal() override {
-	maeslog.debug("%s\n", __FUNCTION__); 
+	maeslog.debug("%s\n", __FUNCTION__);
       	// init your hardware
       	// beep_init();
         // uart_init();
@@ -92,7 +93,7 @@ public:
 
     // startup sequence 3 inside maes
     int initFml() override {
-	maeslog.debug("%s\n", __FUNCTION__); 
+	maeslog.debug("%s\n", __FUNCTION__);
         // init your functions
       	// db_init();
       	// algorithm_init();
@@ -104,21 +105,21 @@ public:
     int initAppl() override {
       	// get configurations
 	const int val = framework().getConfig()["mqtt-service"]["val"].asInt();
-     		
+
       	// do something
       	// ...
-      	
+
       	// main loop
       	while(1) {
           // ...
         }
-      
+
         return 0;
     }
 
     // on maes exit
     void onExit() override {
-	maeslog.debug("%s\n", __FUNCTION__); 
+	maeslog.debug("%s\n", __FUNCTION__);
     }
 };
 
@@ -145,7 +146,7 @@ cd maes
 mkdir my_build
 
 # Go into my_build
-cd my_build 
+cd my_build
 
 # Set zmq lib and inc directories
 cmake .. -DZMQ_LIB="..." -DZMQ_INC="..."
@@ -161,3 +162,7 @@ make
 3. For embedded system or embedded devices, the communication is easily between your services in your device or amoung your devices;
 4. Hope you will love [MAES](https://www.github.com/jtttl/maes);
 
+# Contact me
+
+- e-mail : jtttl1221@gmail.com
+- wechat : jtl1221
