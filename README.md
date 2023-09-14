@@ -164,5 +164,5 @@ make
 
 # Contact me
 
-- e-mail : jtttl1221@gmail.com
-- wechat : jtl1221
+- Email : jtttl1221@gmail.com
+- WeChat : jtl1221
