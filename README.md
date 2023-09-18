@@ -76,13 +76,13 @@ public:
 
     // startup sequence 1 inside maes
     void onInit() override {
-	     // logs
-	     maeslog.debug("%s\n", __FUNCTION__);
+      	// logs
+        maeslog.debug("%s\n", __FUNCTION__);
     }
 
     // startup sequence 2 inside maes
     int initHal() override {
-	      maeslog.debug("%s\n", __FUNCTION__);
+	maeslog.debug("%s\n", __FUNCTION__);
       	// init your hardware
       	// beep_init();
         // uart_init();
@@ -92,7 +92,7 @@ public:
 
     // startup sequence 3 inside maes
     int initFml() override {
-	      maeslog.debug("%s\n", __FUNCTION__);
+	maeslog.debug("%s\n", __FUNCTION__);
         // init your functions
       	// db_init();
       	// algorithm_init();
@@ -103,7 +103,7 @@ public:
     // startup sequence 4 inside maes
     int initAppl() override {
       	// get configurations
-	      const int val = framework().getConfig()["mqtt-service"]["val"].asInt();
+        const int val = framework().getConfig()["mqtt-service"]["val"].asInt();
 
       	// do something
       	// ...
@@ -118,7 +118,7 @@ public:
 
     // on maes exit
     void onExit() override {
-		    maeslog.debug("%s\n", __FUNCTION__);
+        maeslog.debug("%s\n", __FUNCTION__);
     }
 };
 
