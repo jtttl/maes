@@ -87,13 +87,13 @@ public:
 
     // maes框架内启动顺序1
     void onInit() override {
-		  // 使用日志
-		  maeslog.debug("%s\n", __FUNCTION__);
+        // 使用日志
+	maeslog.debug("%s\n", __FUNCTION__);
     }
 
     // maes框架内启动顺序2
     int initHal() override {
-	      maeslog.debug("%s\n", __FUNCTION__);
+        maeslog.debug("%s\n", __FUNCTION__);
       	// 初始化你的硬件外设
       	// beep_init();
         // uart_init();
@@ -103,7 +103,7 @@ public:
 
     // maes框架内启动顺序3
     int initFml() override {
-			  maeslog.debug("%s\n", __FUNCTION__);
+        maeslog.debug("%s\n", __FUNCTION__);
         // 初始化你的软件功能模块
       	// db_init();
       	// algorithm_init();
@@ -114,7 +114,7 @@ public:
     // maes框架内启动顺序4
     int initAppl() override {
       	// 获取参数文件中的参数
-	      const int val = framework().getConfig()["mqtt-service"]["val"].asInt();
+        const int val = framework().getConfig()["mqtt-service"]["val"].asInt();
 
       	// do something
       	// ...
@@ -129,7 +129,7 @@ public:
 
     // maes退出时执行次函数
     void onExit() override {
-		    maeslog.debug("%s\n", __FUNCTION__);
+        maeslog.debug("%s\n", __FUNCTION__);
     }
 };
 
