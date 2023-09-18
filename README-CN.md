@@ -13,40 +13,51 @@
 </p>
 
 <p align="center">
-  <a href="#System Overview">System Overview</a> •
-  <a href="#How To Use">How To Use</a> •
-  <a href="#Install">Install</a>  •
-  <a href="#Why microservice">Why microservice</a> •
-  <a href="#Contact me">Contact me</a>
+  <a href="#系统总览">系统总览</a> •
+  <a href="#使用示例">使用示例</a> •
+  <a href="#安装">安装</a>  •
+  <a href="#为什么使用微服务框架">为什么使用微服务框架</a> •
+  <a href="#联系我">联系我</a>
 </p>
 
 
 MAES = **Microservice Architecture on Embedded System**.
 
-MAES gives your system the abilities of :
+MAES 提供给你的软件或系统如下能力：
 
-1. Build your service fast in C/C++;
-2. Multi-service or multi-process communication; (PUB/SUB and REQ/RESP)
-3. Write and save logs;
-4. Load configuration file and use configurations;
+1. 使用C/C++快速生成可运行的一个服务；
+2. 支持服务之前（或称之为进程直接）通信；（支持发布订阅、请求应答方式）
+3. 通过框架可创建并记录日志；
+4. 通过框架加载配置文件以及使用参数；
 
 
 
-# System Overview
+# 系统总览
 <img width="590" alt="image" src="https://github.com/jtttl/maes/assets/8311087/e15301f5-47c8-4cf8-b1de-6278faa70df4">
 
 
 
-# How To Use
+# 为什么使用微服务框架
+
+将后端的微服务架构思想引入嵌入式领域：
+
+1. 将你的单体软件拆分成若个服务程序（进程），并通过API进行关联，这样将会是你的软件可扩展性更强、更加轻松应对外界的需求、同时让微服务可以做到异常隔离；
+2. 更加轻松的将任务分配给多个人开发，且开发的大部分过程开发人员之间相互没有依赖；
+3. 使用微服务框架，其自带的通信机制，让服务直接通信更加轻松自然，甚至是跨设备之间的服务；
+4. 希望你会喜欢 [MAES](https://www.github.com/jtttl/maes);
+
+
+
+# 使用示例
 
 ```cpp
 #include <iostream>
 #include <memory>
 
-// maes include
+// maes头文件包含
 #include "MaesService.h"
 
-// Create a derived class from maes::ServiceHandler
+// 创建一个class并继承maes::ServiceHandler
 class MqttService : public maes::ServiceHandler {
 public:
     MqttService() {}
@@ -54,61 +65,61 @@ public:
 
 public:
 
-    // path of storing all the log files
+    // 设置日志存储位置
     std::string getLogPath() override {
         return "/tmp";
     }
 
-    // path of configuration file
+    // 设置配置文件所在位置
     std::string getConfigFile() override {
         return "/home/config.json";
     }
 
-    // set your service name
+    // 设置你的服务名
     std::string getServiceName() override {
         return "mqtt-service";
     }
 
-    // set your service version
+    // 设置服务版本
     std::string getVersion() {
       	return "1.2.3";
     }
 
-    // startup sequence 1 inside maes
+    // maes框架内启动顺序1
     void onInit() override {
-	     // logs
-	     maeslog.debug("%s\n", __FUNCTION__);
+		  // 使用日志
+		  maeslog.debug("%s\n", __FUNCTION__);
     }
 
-    // startup sequence 2 inside maes
+    // maes框架内启动顺序2
     int initHal() override {
 	      maeslog.debug("%s\n", __FUNCTION__);
-      	// init your hardware
+      	// 初始化你的硬件外设
       	// beep_init();
         // uart_init();
         // nfc_init();
         return 0;
     }
 
-    // startup sequence 3 inside maes
+    // maes框架内启动顺序3
     int initFml() override {
-	      maeslog.debug("%s\n", __FUNCTION__);
-        // init your functions
+			  maeslog.debug("%s\n", __FUNCTION__);
+        // 初始化你的软件功能模块
       	// db_init();
       	// algorithm_init();
       	// encrypt_init();
         return 0;
     }
 
-    // startup sequence 4 inside maes
+    // maes框架内启动顺序4
     int initAppl() override {
-      	// get configurations
+      	// 获取参数文件中的参数
 	      const int val = framework().getConfig()["mqtt-service"]["val"].asInt();
 
       	// do something
       	// ...
 
-      	// main loop
+      	// 主循环
       	while(1) {
           // ...
         }
@@ -116,14 +127,14 @@ public:
         return 0;
     }
 
-    // on maes exit
+    // maes退出时执行次函数
     void onExit() override {
 		    maeslog.debug("%s\n", __FUNCTION__);
     }
 };
 
 int main(int argc, char const *argv[]) {
-    // put your service into the maes
+    // 将上面创建的MqttService放入框架
     maes::Framework f(std::make_shared<MqttService>());
     // let's go
     return f.run();
@@ -132,36 +143,33 @@ int main(int argc, char const *argv[]) {
 
 
 
-# Install
+# 安装
 
 ```bash
-# Clone this repository
+# 克隆仓库
 $ git clone https://github.com/jtttl/maes
 
-# Go into the repository
+# 进入maes目录
 cd maes
 
-# Create build directory for cmake
+# 创建一个build目录
 mkdir my_build
 
-# Go into my_build
+# 进入build目录
 cd my_build
 
-# Set zmq lib and inc directories
+# 设置zmq库和头文件路径
 cmake .. -DZMQ_LIB="..." -DZMQ_INC="..."
 
-# Make
+# 开始make
 make
 ```
 
-# Why microservice
 
-1. Breaking your monolithic application into services, which are then loosely connected via APIs. This allows for improved scalability, better fault isolation, and faster time to market;
-2. Easy for two-pizza development teams;
-3. For embedded system or embedded devices, the communication is easily between your services in your device or amoung your devices;
-4. Hope you will love [MAES](https://www.github.com/jtttl/maes);
 
-# Contact me
+# 联系我
 
-- Email : jtttl1221@gmail.com
-- WeChat : jtl1221
+如果有想法或者合作意向等，可以联系我：
+
+- 邮箱 : jtttl1221@gmail.com
+- 微信 : jtl1221
