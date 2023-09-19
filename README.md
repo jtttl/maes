@@ -13,10 +13,10 @@
 </p>
 
 <p align="center">
+  <a href="#Why Microservice">Why Microservice</a> •
   <a href="#System Overview">System Overview</a> •
   <a href="#How To Use">How To Use</a> •
   <a href="#Install">Install</a>  •
-  <a href="#Why microservice">Why microservice</a> •
   <a href="#Contact me">Contact me</a>
 </p>
 
@@ -30,11 +30,18 @@ MAES gives your system the abilities of :
 3. Write and save logs;
 4. Load configuration file and use configurations;
 
+# Why Microservice
+
+Why use this backend architecture in embedded system?
+
+1. Breaking your monolithic application into services, which are then loosely connected via APIs. This allows for improved scalability, better fault isolation, and faster time to market;
+2. Easy for two-pizza development teams;
+3. For embedded system or embedded devices, the communication is easily between your services in your device or amoung your devices;
+4. Hope you will love [MAES](https://www.github.com/jtttl/maes);
 
 
 # System Overview
 <img width="590" alt="image" src="https://github.com/jtttl/maes/assets/8311087/e15301f5-47c8-4cf8-b1de-6278faa70df4">
-
 
 
 # How To Use
@@ -153,13 +160,6 @@ cmake .. -DZMQ_LIB="..." -DZMQ_INC="..."
 # Make
 make
 ```
-
-# Why microservice
-
-1. Breaking your monolithic application into services, which are then loosely connected via APIs. This allows for improved scalability, better fault isolation, and faster time to market;
-2. Easy for two-pizza development teams;
-3. For embedded system or embedded devices, the communication is easily between your services in your device or amoung your devices;
-4. Hope you will love [MAES](https://www.github.com/jtttl/maes);
 
 # Contact me
 
