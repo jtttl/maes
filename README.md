@@ -45,7 +45,7 @@ Why use this backend architecture in embedded system?
 
 
 # How To Use
-
+## Create a Service
 ```cpp
 #include <iostream>
 #include <memory>
@@ -136,8 +136,16 @@ int main(int argc, char const *argv[]) {
     return f.run();
 }
 ```
+## Communication Between Microservices
+### PUB-SUB
+```cpp
+// TODO
+```
 
-
+### REQ-RESP
+```cpp
+// TODO
+```
 
 # Install
 
