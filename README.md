@@ -151,7 +151,7 @@ int main(int argc, char const *argv[]) {
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/jtttl/maes
+git clone https://github.com/jtttl/maes
 
 # Go into the repository
 cd maes
